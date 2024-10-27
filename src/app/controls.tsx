@@ -25,13 +25,13 @@ const Controls: React.FC<ControlsProps> = ({
   const [chargeName, setChargeName] = useState("New charge");
 
   return (
-    <div className="absolute right-0 z-[1] m-4 flex h-3/4 flex-col rounded-lg bg-white p-4 text-black shadow-lg">
+    <div className="absolute right-0 z-[1] m-4 flex h-3/4 min-w-[450px] flex-col rounded-lg bg-white p-4 text-black shadow-lg">
       <h1 className="text-rtl text-2xl font-extrabold tracking-tighter">
         Settings
       </h1>
 
       {showPopup && (
-        <div className="absolute left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50 p-8">
+        <div className="absolute left-0 top-0 z-[40] flex h-full w-full items-center justify-center bg-black bg-opacity-50 p-8">
           <div className="flex flex-col gap-4 rounded-lg bg-white p-4">
             <h1 className="text-2xl font-bold tracking-tighter">
               Add particle
@@ -42,16 +42,16 @@ const Controls: React.FC<ControlsProps> = ({
               </label>
               <div className="flex gap-4">
                 <button
-                  className={`w-1/2 rounded-lg bg-stone-800 px-2 py-1 text-white ${
-                    type === "positive" ? "bg-green-500" : ""
+                  className={`w-1/2 rounded-lg px-2 py-1 text-white ${
+                    type === "positive" ? "bg-green-500" : "bg-stone-800"
                   }`}
                   onClick={() => setType("positive")}
                 >
                   Positive
                 </button>
                 <button
-                  className={`w-1/2 rounded-lg bg-stone-800 px-2 py-1 text-white ${
-                    type === "negative" ? "bg-red-500" : ""
+                  className={`w-1/2 rounded-lg px-2 py-1 text-white ${
+                    type === "negative" ? "bg-red-500" : "bg-stone-800"
                   }`}
                   onClick={() => setType("negative")}
                 >

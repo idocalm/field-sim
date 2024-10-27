@@ -37,8 +37,9 @@ const Particles: React.FC<ParticlesProps> = ({ particles }) => {
               anchorX="center"
               anchorY="middle"
               fontWeight="bold"
+              fontStyle="italic"
             >
-              {particle.type === "positive" ? "Positive" : "Negative"}
+              {particle.name}
             </Text>
           </group>
         </mesh>
