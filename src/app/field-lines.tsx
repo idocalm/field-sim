@@ -23,11 +23,13 @@ const FieldLines: React.FC<FieldLineProps> = ({ particles }) => {
 
     particles.forEach((particle) => {
       const r = position.clone().sub(particle.position); // Vector from the particle to the point
+
       const distance = r.length();
       if (distance > 0) {
         const unitVector = r.normalize();
         const magnitude = (k * particle.charge) / (distance * distance);
-        field.add(unitVector.multiplyScalar(magnitude));
+        const electricField = unitVector.multiplyScalar(magnitude);
+        field.add(electricField);
       }
     });
 
@@ -36,8 +38,8 @@ const FieldLines: React.FC<FieldLineProps> = ({ particles }) => {
 
   // Create field lines
   const lines = useMemo(() => {
-    const lineLength = 250; // Length of the lines
-    const increment = 0.4; // Increment for the length of the lines
+    const lineLength = 400; // Length of the lines
+    const increment = 0.2; // Increment for the length of the lines
     const fieldLines: JSX.Element[] = [];
 
     particles.forEach((particle) => {
@@ -73,7 +75,7 @@ const FieldLines: React.FC<FieldLineProps> = ({ particles }) => {
               opacity={0.8}
               transparent
               depthWrite={false}
-              color={0xff0000}
+              color={"white"}
               lineWidth={2}
             />,
           );
